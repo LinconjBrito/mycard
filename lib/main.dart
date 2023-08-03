@@ -1,29 +1,74 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MeuApp());
+  runApp(const MyApp());
 }
 
-class MeuApp extends StatelessWidget {
-  const MeuApp({super.key});
+// criando uma classe stateless para poder utilizar os recursos de hotreload
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        backgroundColor: Colors.yellow,
-        appBar: AppBar(title: const Text("Meu aplicativo")),
-
-        body: Container(
-
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-          padding: const EdgeInsets.all(20),
-
-          width: 100,
-          height: 100,
-          color: Colors.red,
-
-          child: const Text("Meu texto!"),
+      home: Scaffold( 
+        backgroundColor: Colors.lightBlue,
+        body: SafeArea(
+          child: Stack(
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.white, 
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.white,
+                  ),
+                  Container(
+                    width: double.infinity,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.white,
+                  )
+                ],
+              ),
+              Center(
+                child: Container(
+                  width: 200,
+                  height: 150,
+                  color: Colors.black,
+                  child: const Center(
+                      child: Text(
+                    "Desafio aula 15",
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  )),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
